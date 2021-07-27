@@ -8,15 +8,18 @@ import { AgeService } from '../age-service/age.service';
 })
 export class NameFormComponent implements OnInit {
 
+  nameInput? : string;
   age? : number;
 
-  constructor(private ageService: AgeService) { }
+  constructor(private ageService: AgeService) {
+    this.nameInput =  '';
+  }
 
   ngOnInit(): void {
   }
 
   getDataForName(event: Event) : void {
-    this.age = this.ageService.getAge();
+    this.ageService.getAge(this.nameInput ?? '').subscribe(result => this.age = result);
     event.preventDefault();
   }
 

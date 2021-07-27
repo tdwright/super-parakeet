@@ -1,5 +1,5 @@
 <form>
-    <input type="text" name="name-input" />
-    <input type="submit" value="Go!" (click)="getDataForName($event)" />
+    <input type="text" name="name-input" [(ngModel)]="nameInput" />
+    <input type="submit" value="Go!" (click)="getDataForName($event)" [disabled]='!nameInput' />
 </form>
 <p *ngIf="age">Age: {{age}}</p>
