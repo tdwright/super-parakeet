@@ -1,20 +1,31 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# The Name Game
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+**Objective:** Using free APIs, create an Angular application which guesses information about a person based on their name.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+**Starting point:** Skeleton Angular project with basic elements and mock data in place.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+**Before you start...** Make sure you can build and run the app. (You should get an age of 99 for any input values.)
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## Tasks:
+1. Replace the mock data with a call to Agify.io (details below)
+2. Validate input - only enable button when input value is OK.
+3. Add some indication that the request is in progress (e.g. a spinner)
+4. Use the "age" and "count" values to filter out ages which are unlikely to be accurate - display a message when this occurs
+5. Extend the app to also call genderize.io and present the guess of gender
+
+## Agify.io example calls:
+### Real name:
+
+https://api.agify.io/?name=tom
+
+```json
+{"name":"tom","age":39,"count":120238}
+```
+
+### Fake name:
+
+https://api.agify.io/?name=frqka
+
+```json
+{"name":"frqka","age":null,"count":0}
+```
