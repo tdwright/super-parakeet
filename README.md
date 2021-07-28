@@ -1,27 +1,31 @@
-# NameGame
+# The Name Game
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
+**Objective:** Using free APIs, create an Angular application which guesses information about a person based on their name.
 
-## Development server
+**Starting point:** Skeleton Angular project with basic elements and mock data in place.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+**Before you start...** Make sure you can build and run the app. (You should get an age of 99 for any input values.)
 
-## Code scaffolding
+## Tasks:
+1. Replace the mock data with a call to Agify.io (details below)
+2. Validate input - only enable button when input value is OK.
+3. Add some indication that the request is in progress (e.g. a spinner)
+4. Use the "age" and "count" values to filter out ages which are unlikely to be accurate - display a message when this occurs
+5. Extend the app to also call genderize.io and present the guess of gender
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Agify.io example calls:
+### Real name:
 
-## Build
+https://api.agify.io/?name=tom
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```json
+{"name":"tom","age":39,"count":120238}
+```
 
-## Running unit tests
+### Fake name:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+https://api.agify.io/?name=frqka
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```json
+{"name":"frqka","age":null,"count":0}
+```
