@@ -9,6 +9,8 @@ import { AgeService } from '../age-service/age.service';
 export class NameFormComponent implements OnInit {
 
   age? : number;
+  public nameInput : string = '';
+  public loading = false;
 
   constructor(private ageService: AgeService) { }
 
@@ -16,7 +18,15 @@ export class NameFormComponent implements OnInit {
   }
 
   getDataForName(event: Event) : void {
-    this.age = this.ageService.getAge();
+    this.age = undefined;
+    this.loading = true;
+    this.ageService.getAgeApi(this.nameInput).subscribe((json:any) => {
+        if(json?.age){
+          this.age = json.age;
+        }
+      this.loading = false;
+    });
+
     event.preventDefault();
   }
 

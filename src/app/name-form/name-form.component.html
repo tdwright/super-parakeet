@@ -1,5 +1,14 @@
 <form>
-    <input type="text" name="name-input" />
-    <input type="submit" value="Go!" (click)="getDataForName($event)" />
+    <input type="text" [(ngModel)]="nameInput" name="name-input" />
+    <input type="submit" value="Go!" [disabled]="!nameInput" (click)="getDataForName($event)" />
 </form>
-<p *ngIf="age">Age: {{age}}</p>
+
+<div *ngIf='loading'>
+  <label>Loading...</label>
+</div>
+
+
+
+<div>
+  <p *ngIf="age">Age: {{age}}</p>
+</div>
